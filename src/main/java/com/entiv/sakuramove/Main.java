@@ -1,14 +1,14 @@
 package com.entiv.sakuramove;
 
-import com.entiv.sakuramove.action.DamageableJump;
-import com.entiv.sakuramove.listener.DoubleJumpListener;
-import com.entiv.sakuramove.listener.DamageableJumpListener;
+//import com.entiv.sakuramove.action.DamageableJump;
+//import com.entiv.sakuramove.listener.DoubleJumpListener;
+//import com.entiv.sakuramove.listener.DamageableJumpListener;
 import com.entiv.sakuramove.listener.SpringListener;
 import com.entiv.sakuramove.manager.StaminaManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.event.HandlerList;
+//import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -16,8 +16,8 @@ public class Main extends JavaPlugin {
     private static Main plugin;
     private StaminaManager staminaManager;
 
-    private DoubleJumpListener doubleJump;
-    private DamageableJumpListener damageableJump;
+    //private DoubleJumpListener doubleJump;
+    //private DamageableJumpListener damageableJump;
 
     @Override
     public void onEnable() {
@@ -31,8 +31,8 @@ public class Main extends JavaPlugin {
         getServer().getConsoleSender().sendMessage(message);
 
 
-        damageableJump = new DamageableJumpListener();
-        doubleJump = new DoubleJumpListener();
+        //damageableJump = new DamageableJumpListener();
+        //doubleJump = new DoubleJumpListener();
 
         reload();
         saveDefaultConfig();
@@ -73,17 +73,17 @@ public class Main extends JavaPlugin {
 
         boolean enableFallDamage = getConfig().getBoolean("移动行为.二段跳.摔落伤害");
 
-        HandlerList.unregisterAll(damageableJump);
-        HandlerList.unregisterAll(doubleJump);
+       // HandlerList.unregisterAll(damageableJump);
+        //HandlerList.unregisterAll(doubleJump);
 
-        if (enableFallDamage) {
-            Bukkit.getPluginManager().registerEvents(damageableJump, this);
-            DamageableJump.getInstance().disableJumpingChecker();
-
-        } else {
-            Bukkit.getPluginManager().registerEvents(doubleJump, this);
-            DamageableJump.getInstance().enableJumpingChecker();
-        }
+//        if (enableFallDamage) {
+//            Bukkit.getPluginManager().registerEvents(damageableJump, this);
+//            DamageableJump.getInstance().disableJumpingChecker();
+//
+//        } else {
+//            Bukkit.getPluginManager().registerEvents(doubleJump, this);
+//            DamageableJump.getInstance().enableJumpingChecker();
+//        }
 
     }
 
