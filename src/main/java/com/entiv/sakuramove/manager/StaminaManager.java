@@ -26,9 +26,7 @@ public class StaminaManager extends BukkitRunnable {
 
         StringBuilder progressBuilder = new StringBuilder();
 
-        for (int i = 0; i < maxStamina; i++) {
-            progressBuilder.append(ICON);
-        }
+        progressBuilder.append(ICON.repeat(Math.max(0, maxStamina)));
 
         for (int i = 100; i < maxStamina; i += 20) {
             progressBuilder.replace(i - 1, i, CALIBRATION);
@@ -54,6 +52,11 @@ public class StaminaManager extends BukkitRunnable {
             UUID uuid = iterator.next();
 
             Player player = Bukkit.getPlayer(uuid);
+
+            if(player == null){ // FIX: Possibly NullPointerException
+                iterator.remove();
+                continue;
+            }
 
             if (!isRecoveryStaminaCoolDown(player)) {
                 increaseStamina(player, 1);

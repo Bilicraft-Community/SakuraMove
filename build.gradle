@@ -76,4 +76,4 @@ dependencies {
 }
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-libsDirName = "${outputPath}"
+//libsDirName = "${outputPath}"

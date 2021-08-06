@@ -35,8 +35,10 @@ public class SpringListener implements Listener {
             if (!isAllowItem) continue;
 
             if (player.isSprinting() && !sprint.isCoolDown(player)) {
-                sprint.accept(player);
-                sprint.setCoolDown(player);
+                if(!player.isGliding()) { // Prevent player sprinting while using Elytra
+                    sprint.accept(player);
+                    sprint.setCoolDown(player);
+                }
             }
         }
     }
